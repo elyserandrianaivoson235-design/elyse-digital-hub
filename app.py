@@ -48,7 +48,7 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        if username == 'elyse27' and password == '1234':
+        if username == 'elyse27' and password == 'Thony#Randry207':
             session['admin_logged_in'] = True
             return redirect(url_for('admin_backend'))
         else:
