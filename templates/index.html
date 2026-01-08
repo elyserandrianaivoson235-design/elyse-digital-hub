@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysé Digital Hub - Next-Gen Solutions</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='Logo.png') }}" alt="Elysé Digital Logo">
+            </a>
+        </div>
+
+        <div class="nav-right-side">
+            <div class="nav-links">
+                <a href="/" class="menu-link {% if request.path == '/' %}active{% endif %}">
+                    {% if lang == 'fr' %}ACCUEIL{% else %}HOME{% endif %}
+                </a>
+                <a href="/momba" class="menu-link {% if request.path == '/momba' %}active{% endif %}">
+                    {% if lang == 'fr' %}À PROPOS{% else %}ABOUT{% endif %}
+                </a>
+            </div>
+
+            <div class="lang-switcher">
+                <a href="/set-language/fr" class="lang-btn {% if lang == 'fr' %}active{% endif %}">FR</a>
+                <a href="/set-language/en" class="lang-btn {% if lang == 'en' %}active{% endif %}">EN</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content hero-container">
+        <h1 class="glitch-title">ELYSÉ DIGITAL HUB</h1>
+        
+        <p class="tagline">
+            {% if lang == 'fr' %}TECHNOLOGIE ET DESIGN POUR VOTRE RÉUSSITE
+            {% else %}TECHNOLOGY AND DESIGN FOR YOUR SUCCESS{% endif %}
+        </p>
+        
+        <p class="main-intro">
+            {% if lang == 'fr' %}
+                Solutions digitales complètes : Développement Web, Multimédia, et services BPO professionnels. Votre partenaire pour atteindre vos objectifs numériques.
+            {% else %}
+                Complete digital solutions: Web Development, Multimedia, and professional BPO services. Your partner in achieving all your digital goals.
+            {% endif %}
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-icon">
+                    <img src="{{ url_for('static', filename='image Web Development.png') }}" alt="Web Development">
+                </div>
+                <h3>
+                    {% if lang == 'fr' %}Développement Web{% else %}Web Development{% endif %}
+                </h3>
+                <p>
+                    {% if lang == 'fr' %}Création de sites modernes et applications web sur-mesure utilisant Flask, React et Design .
+                    {% else %}Creation of modern websites and custom web applications using Flask, React, and Design.{% endif %}
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon">
+                    <img src="{{ url_for('static', filename='image BPO Services.png') }}" alt="BPO Services">
+                </div>
+                <h3>
+                    {% if lang == 'fr' %}Services BPO{% else %}BPO Services{% endif %}
+                </h3>
+                <p>
+                    {% if lang == 'fr' %}Expert en Annotation d'images, Transcription Audio, et gestion de données massives pour l'IA.
+                    {% else %}Expert in Image Annotation, Audio Transcription, and big data management for AI.{% endif %}
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon">
+                    <img src="{{ url_for('static', filename='image Creative Studio.png') }}" alt="Creative Studio">
+                </div>
+                <h3>
+                    {% if lang == 'fr' %}Studio Créatif{% else %}Creative Studio{% endif %}
+                </h3>
+                <p>
+                    {% if lang == 'fr' %}Montage Vidéo, Design Graphique et Production Multimédia de haute qualité.
+                    {% else %}Video Editing, Graphic Design, and high-quality Multimedia Production.{% endif %}
+                </p>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-main" onclick="toggleChat()">
+                {% if lang == 'fr' %}Proposer un Projet{% else %}Submit a Project{% endif %}
+            </button>
+            <br><br>
+            <a href="https://www.facebook.com/ely.rayan.92" target="_blank" class="fb-link">Follow me on Facebook</a>
+        </div>
+    </div>
+
+    <div id="chat-bubble" onclick="toggleChat()">💬</div>
+
+    <div id="chat-window" class="hidden">
+        <div class="chat-header">
+            <span>
+                {% if lang == 'fr' %}Contactez Elysé{% else %}Contact Elysé{% endif %}
+            </span>
+            <button onclick="toggleChat()" style="background:none; border:none; color:black; cursor:pointer; font-weight:bold; font-size:20px;">×</button>
+        </div>
+        <div class="chat-content">
+            <form action="/andefa-hafatra" method="POST">
+                <input type="text" name="anarana" placeholder="{% if lang == 'fr' %}Votre nom{% else %}Your name{% endif %}" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="hafatra" placeholder="{% if lang == 'fr' %}Votre message...{% else %}Your message...{% endif %}" required></textarea>
+                <button type="submit">
+                    {% if lang == 'fr' %}Envoyer{% else %}Send{% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <span id="ora-izao">00:00:00</span>
+            <p class="copyright">&copy; 2026 - Elysé Digital Hub</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
