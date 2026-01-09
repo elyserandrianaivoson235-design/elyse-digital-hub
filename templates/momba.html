@@ -3,27 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if lang == 'fr' %}À Propos{% else %}About{% endif %} - Elysé Digital Hub</title>
+    <title>{% if lang == 'fr' %}À Propos - Expertise Digitale{% else %}About - Digital Expertise{% endif %} - Elysé Digital Hub</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav>
         <div class="nav-logo">
-            <a href="/">
-                <img src="{{ url_for('static', filename='Logo.png') }}" alt="Elysé Digital Logo">
-            </a>
+            <a href="/"><img src="{{ url_for('static', filename='Logo.png') }}" alt="Logo"></a>
         </div>
-
         <div class="nav-right-side">
             <div class="nav-links">
-                <a href="/" class="menu-link {% if request.path == '/' %}active{% endif %}">
-                    {% if lang == 'fr' %}ACCUEIL{% else %}HOME{% endif %}
-                </a>
-                <a href="/momba" class="menu-link {% if request.path == '/momba' %}active{% endif %}">
-                    {% if lang == 'fr' %}À PROPOS{% else %}ABOUT{% endif %}
-                </a>
+                <a href="/" class="menu-link">{% if lang == 'fr' %}ACCUEIL{% else %}HOME{% endif %}</a>
+                <a href="/momba" class="menu-link active">{% if lang == 'fr' %}À PROPOS{% else %}ABOUT{% endif %}</a>
             </div>
-
             <div class="lang-switcher">
                 <a href="/set-language/fr" class="lang-btn {% if lang == 'fr' %}active{% endif %}">FR</a>
                 <a href="/set-language/en" class="lang-btn {% if lang == 'en' %}active{% endif %}">EN</a>
@@ -31,52 +23,78 @@
         </div>
     </nav>
 
-    <div class="momba-layout">
-        <div class="momba-image-side">
-            <img src="/static/profil.png" alt="Elysé">
-        </div>
-
-        <div class="momba-text-side">
-            <h1 class="glitch-title">
-                {% if lang == 'fr' %}À PROPOS{% else %}ABOUT ME{% endif %}
+    <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+        
+        <section class="mission-section" style="margin-bottom: 40px; text-align: center;">
+            <h1 class="glitch-title" style="font-size: 2.8rem; margin-bottom: 15px;">
+                {% if lang == 'fr' %}NOTRE MISSION{% else %}OUR MISSION{% endif %}
             </h1>
+            <p style="font-size: 1.1rem; line-height: 1.7; color: #ccc; max-width: 850px; margin: 0 auto;">
+                {% if lang == 'fr' %}
+                    Chez <strong>Elyse Digital Hub</strong>, notre mission dépasse la simple prestation technique. Nous nous engageons à propulser la croissance de nos partenaires en concevant des écosystèmes numériques robustes et innovants. Notre approche fusionne créativité visuelle et rigueur technologique pour transformer chaque défi en une opportunité de succès durable.
+                {% else %}
+                    At <strong>Elyse Digital Hub</strong>, our mission goes beyond simple technical provision. We are committed to propelling our partners' growth by designing robust and innovative digital ecosystems. Our approach merges visual creativity and technological rigor to transform every challenge into an opportunity for lasting success.
+                {% endif %}
+            </p>
+        </section>
+
+        <section class="expertise-details" style="margin-bottom: 40px;">
+            <h2 style="color: #00f2ff; text-align: center; margin-bottom: 30px; font-size: 1.8rem;">
+                {% if lang == 'fr' %}NOS DOMAINES D'INTERVENTION{% else %}OUR CORE EXPERTISE{% endif %}
+            </h2>
             
-            <p class="main-intro">
-    {% if lang == 'fr' %}
-        Je suis <strong>Elysé</strong>, expert en Web Development et services BPO. 
-        Je conçois des solutions digitales innovantes et performantes pour 
-        propulser votre business vers l'excellence.
-    {% else %}
-        I am <strong>Elysé</strong>, expert in Web Development and BPO services. 
-        I design innovative and high-performance digital solutions to propel 
-        your business towards excellence.
-    {% endif %}
-</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 25px; border-left: 3px solid #00f2ff;">
+                    <h3 style="color: #fff; margin-bottom: 10px;">Web Development & Creative Design</h3>
+                    <p style="color: #bbb; line-height: 1.5; font-size: 0.95rem;">
+                        {% if lang == 'fr' %}Nous façonnons des interfaces modernes et intuitives. De la conception UX/UI au développement full-stack, chaque pixel est optimisé pour offrir une expérience utilisateur fluide.{% else %}We craft modern and intuitive interfaces. From UX/UI design to full-stack development, every pixel is optimized for a seamless user experience.{% endif %}
+                    </p>
+                </div>
 
-<div class="services-grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
-    <div class="service-card">
-        <h3>{% if lang == 'fr' %}Qualité{% else %}Quality{% endif %}</h3>
-        <p>
-            {% if lang == 'fr' %}Une précision rigoureuse et des standards d'excellence pour chaque projet.{% else %}Rigorous precision and standards of excellence for every project.{% endif %}
-        </p>
-    </div>
-    <div class="service-card">
-        <h3>{% if lang == 'fr' %}Satisfait{% else %}Satisfaction{% endif %}</h3>
-        <p>
-            {% if lang == 'fr' %}Votre satisfaction est ma priorité, avec un résultat qui dépasse vos attentes.{% else %}Your satisfaction is my priority, with results that exceed your expectations.{% endif %}
-        </p>
-    </div>
-</div>
-            <a href="/" class="fb-link" style="margin-top: 30px; display: inline-block;">
-                {% if lang == 'fr' %}Retour à l'accueil{% else %}Back to home{% endif %}
-            </a>
+                <div style="background: rgba(255,255,255,0.02); padding: 25px; border-left: 3px solid #00f2ff;">
+                    <h3 style="color: #fff; margin-bottom: 10px;">Solutions BPO & Data Management</h3>
+                    <p style="color: #bbb; line-height: 1.5; font-size: 0.95rem;">
+                        {% if lang == 'fr' %}L'externalisation au service de l'efficacité : annotation de données pour l'IA et gestion de processus complexes avec une précision chirurgicale.{% else %}Outsourcing for efficiency: data annotation for AI and complex process management with surgical precision.{% endif %}
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 25px; border-left: 3px solid #00f2ff;">
+                    <h3 style="color: #fff; margin-bottom: 10px;">SEO & Stratégie de Visibilité</h3>
+                    <p style="color: #bbb; line-height: 1.5; font-size: 0.95rem;">
+                        {% if lang == 'fr' %}Nos stratégies SEO avancées assurent un positionnement optimal sur les moteurs de recherche, augmentant ainsi votre autorité numérique.{% else %}Our advanced SEO strategies ensure optimal positioning on search engines, increasing your digital authority.{% endif %}
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); padding: 25px; border-left: 3px solid #00f2ff;">
+                    <h3 style="color: #fff; margin-bottom: 10px;">Engagement Qualité & Support</h3>
+                    <p style="color: #bbb; line-height: 1.5; font-size: 0.95rem;">
+                        {% if lang == 'fr' %}Nous assurons un suivi rigoureux et une maintenance proactive pour garantir la pérennité de vos infrastructures digitales.{% else %}We ensure rigorous follow-up and proactive maintenance to guarantee the durability of your digital infrastructures.{% endif %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="momba-layout" style="display: flex; gap: 40px; align-items: center; background: rgba(0, 242, 255, 0.03); padding: 30px; border-radius: 15px; margin-bottom: 20px;">
+            <div style="flex: 1;">
+                <img src="/static/profil.png" alt="Elysé" style="width: 100%; border-radius: 10px; border: 1px solid rgba(0, 242, 255, 0.3);">
+            </div>
+            <div style="flex: 1.5;">
+                <h2 style="color: #fff; margin-bottom: 15px;">Pourquoi nous choisir ?</h2>
+                <p style="color: #ccc; line-height: 1.7; font-size: 1rem;">
+                    {% if lang == 'fr' %}
+                        Choisir <strong>Elyse Digital Hub</strong>, c'est opter pour une expertise technique sans compromis. Nous anticipons les tendances pour offrir un avantage compétitif réel, menant chaque projet avec une précision exemplaire.
+                    {% else %}
+                        Choosing <strong>Elyse Digital Hub</strong> means opting for uncompromising technical expertise. We anticipate trends to offer a real competitive advantage, leading every project with exemplary precision.
+                    {% endif %}
+                </p>
+            </div>
         </div>
+
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <span id="ora-izao">00:00:00</span>
-            <p class="copyright">&copy; 2026 - Elysé Digital Hub</p>
+    <footer style="margin-top: 20px;">
+        <div class="footer-container" style="text-align: center; padding: 20px 0; border-top: 1px solid #222;">
+            <p class="copyright" style="color: #666; font-size: 0.9rem;">&copy; 2026 - Elysé Digital Hub</p>
         </div>
     </footer>
 
